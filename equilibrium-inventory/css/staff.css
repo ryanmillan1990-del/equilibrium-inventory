@@ -1,0 +1,15 @@
+body:has(.staff-login),body:has(.staff-admin){background:#f5f5f2;color:#222}
+.staff-login{max-width:480px;border-top:5px solid #24543b}
+.staff-login h1,.staff-admin h1{color:#24543b}
+.staff-tabs{display:flex;gap:8px;margin-top:20px}
+.staff-tabs button{flex:1;background:#ecefe8;color:#24543b}
+.staff-tabs button[aria-selected="true"]{background:#24543b;color:#fff}
+.staff-login form button,.staff-admin button{background:#24543b}
+.staff-login select{display:block;width:100%;padding:12px;margin-top:7px;border:1px solid #c7d2e0;border-radius:8px;font:inherit}
+.staff-login input[readonly]{background:#f2f2f2}
+.staff-admin{margin:24px auto;width:min(1000px,calc(100vw - 24px))}
+.staff-admin .toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.staff-admin .toolbar a{color:#24543b}
+.staff-admin .review-actions{display:flex;gap:8px}
+.staff-admin .reject{background:#79533c}
+[hidden]{display:none!important}

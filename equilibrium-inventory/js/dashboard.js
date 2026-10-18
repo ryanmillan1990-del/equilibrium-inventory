@@ -25,6 +25,9 @@ byId('logout').addEventListener('click', async () => {
     byId('welcome').textContent =
       `${staff.full_name} • ${staff.role}`;
 
+    const adminNav = byId('admin-navigation');
+    if (adminNav && staff.role === 'ADMIN') adminNav.hidden = false;
+
     console.log('Loading machine inventory...');
 
     // FETCH MACHINES

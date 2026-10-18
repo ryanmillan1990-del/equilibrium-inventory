@@ -66,7 +66,7 @@ export async function currentStaff() {
     return null;
   }
 
-  if (!['ADMIN', 'WAREHOUSE'].includes(staff.role)) {
+  if (!['ADMIN', 'WAREHOUSE', 'TECHNICAL'].includes(staff.role)) {
     console.error('Invalid staff role:', staff.role);
     return null;
   }

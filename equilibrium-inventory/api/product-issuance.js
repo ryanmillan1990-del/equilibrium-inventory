@@ -109,7 +109,7 @@ export default async function handler(req, res) {
 
     if (
       !staff?.is_active ||
-      !['ADMIN', 'WAREHOUSE'].includes(staff.role)
+      !['ADMIN', 'WAREHOUSE', 'TECHNICAL'].includes(staff.role)
     ) {
       return res.status(403).json({
         error: 'Only authorized staff may download forms'
