@@ -73,36 +73,54 @@
   color: #79533c;
 }
 
-/* LOGIN / REGISTER TABS */
+
+/* LOGIN / REGISTER TAB DESIGN */
+
 .staff-access-page .staff-tabs {
   display: flex;
-  gap: 5px;
+  align-items: center;
+  gap: 4px;
   padding: 5px;
-  margin-bottom: 26px;
+  margin: 0 0 30px;
 
   background: #edf2ee;
   border-radius: 12px;
 }
 
-.staff-access-page .staff-tabs button {
+/* INACTIVE TAB */
+.staff-access-page .staff-tabs button,
+.staff-access-page .staff-tabs button[aria-selected="false"] {
   flex: 1;
   width: auto;
+  min-height: 43px;
   margin: 0;
-  padding: 12px;
+  padding: 10px 14px;
+
+  background: transparent !important;
+  color: #60746a !important;
+
   border: none;
   border-radius: 9px;
+  box-shadow: none;
 
-  background: transparent;
-  color: #577064;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
 }
 
+/* ACTIVE TAB */
 .staff-access-page .staff-tabs button[aria-selected="true"] {
-  background: #194b38;
-  color: #fff;
-  box-shadow: 0 3px 10px rgba(0,0,0,.12);
+  background: #194b38 !important;
+  color: #fff !important;
+  box-shadow: 0 2px 7px rgba(0,0,0,.12);
 }
+
+/* HOVER */
+.staff-access-page .staff-tabs button[aria-selected="false"]:hover {
+  background: #dce8df !important;
+  color: #194b38 !important;
+}
+
 
 /* HEADINGS */
 .staff-access-page section h2 {
@@ -236,5 +254,72 @@
 
   .staff-access-page .company-logo {
     width: 170px;
+  }
+}
+
+
+/* CENTER THE LOGIN CARD */
+
+.staff-access-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 16px;
+}
+
+.staff-access-page .staff-login {
+  margin: auto;
+  max-width: 440px;
+}
+
+/* COMPACT COMPANY BRANDING */
+
+.staff-access-page .brand-header {
+  margin-bottom: 22px;
+  gap: 8px;
+}
+
+.staff-access-page .company-logo {
+  width: 170px;
+}
+
+.staff-access-page .brand-subtitle {
+  font-size: 13px;
+}
+
+.staff-access-page .portal-label {
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+/* IMPROVE FORM SPACING */
+
+.staff-access-page form {
+  gap: 14px;
+}
+
+.staff-access-page section h2 {
+  margin-bottom: 6px;
+}
+
+.staff-access-page .section-description {
+  margin-bottom: 20px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 520px) {
+  .staff-access-page {
+    align-items: flex-start;
+    padding: 15px 10px;
+  }
+
+  .staff-access-page .staff-login {
+    padding: 24px 20px;
+  }
+
+  .staff-access-page .company-logo {
+    width: 145px;
   }
 }
