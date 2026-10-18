@@ -1,0 +1,206 @@
+
+/* EQUILIBRIUM INTERTRADE
+   USER MANAGEMENT PAGE */
+
+.staff-management-page {
+  margin: 0;
+  padding: 35px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    135deg,
+    #edf3ee,
+    #f7f3ee
+  );
+
+  color: #253c30;
+  font-family: Arial, sans-serif;
+}
+
+/* MAIN WHITE CONTAINER */
+.staff-management-page .staff-admin {
+  width: 100% !important;
+  max-width: 1150px !important;
+  margin: 0 auto !important;
+  padding: 35px !important;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border-radius: 18px;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, .07);
+}
+
+/* PAGE HEADER */
+.staff-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e4eae5;
+  margin-bottom: 28px;
+}
+
+.staff-eyebrow {
+  color: #79533c;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0 0 10px;
+}
+
+.staff-page-header h1 {
+  color: #194b38;
+  font-size: 30px;
+  margin: 0 0 10px;
+}
+
+.staff-page-header .subtitle {
+  color: #728278;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.staff-back-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 16px;
+  border-radius: 9px;
+
+  background: #edf3ee;
+  color: #194b38;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.staff-back-link:hover {
+  background: #dce8df;
+}
+
+/* SECTION */
+.staff-section-heading {
+  margin-bottom: 18px;
+}
+
+.staff-section-heading h2 {
+  color: #194b38;
+  font-size: 20px;
+  margin: 0 0 7px;
+}
+
+.staff-section-heading p {
+  color: #728278;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* TABLE WRAPPER */
+.staff-table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e1e8e2;
+  border-radius: 12px;
+}
+
+/* EXISTING JS-GENERATED TABLE */
+.staff-management-page #requests table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  background: white;
+}
+
+.staff-management-page #requests th {
+  padding: 15px 17px;
+  background: #194b38;
+  color: #fff;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.staff-management-page #requests td {
+  padding: 16px 17px;
+  border-bottom: 1px solid #e7ede8;
+  color: #304139;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.staff-management-page #requests tr:last-child td {
+  border-bottom: none;
+}
+
+.staff-management-page #requests tbody tr:hover {
+  background: #f7faf7;
+}
+
+/* ACTION BUTTONS */
+.staff-management-page #requests button {
+  display: inline-block;
+  width: auto;
+  min-width: 82px;
+  margin: 3px;
+  padding: 10px 14px;
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.staff-management-page #requests button:hover {
+  opacity: .9;
+}
+
+.staff-management-page #requests button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* STATUS MESSAGE */
+.staff-management-page #message {
+  margin-top: 18px;
+  color: #194b38;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+
+  .staff-management-page {
+    padding: 12px;
+  }
+
+  .staff-management-page .staff-admin {
+    padding: 20px 14px !important;
+    border-radius: 14px;
+  }
+
+  .staff-page-header h1 {
+    font-size: 24px;
+  }
+
+  .staff-page-header {
+    flex-direction: column;
+  }
+
+  .staff-back-link {
+    width: fit-content;
+  }
+
+  .staff-management-page #requests th,
+  .staff-management-page #requests td {
+    padding: 13px;
+  }
+}
