@@ -7,6 +7,7 @@ const message = document.getElementById('message');
 const qrPanel = document.getElementById('qrPanel');
 
 let machines = [];
+let currentRole = null;
 
 // 1. VERIFY STAFF
 async function checkAccess() {
@@ -17,6 +18,9 @@ async function checkAccess() {
     return false;
   }
 
+  currentRole = staff.role;
+  const addPanel = document.querySelector('.quick-add');
+  if (addPanel) addPanel.hidden = staff.role !== 'ADMIN';
   return true;
 }
 

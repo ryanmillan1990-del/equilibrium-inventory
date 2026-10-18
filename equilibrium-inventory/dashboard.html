@@ -153,8 +153,8 @@
       }
     }
   </style>
-<link href="./css/enhancements.css" rel="stylesheet"/></head>
-<body>
+<link href="./css/enhancements.css" rel="stylesheet"/><link href="./css/app-theme.css" rel="stylesheet"/></head>
+<body class="app-page">
 <main class="wide">
 <!-- DASHBOARD HEADER -->
 <header class="dashboard-header">
@@ -172,8 +172,8 @@
     </button>
 </header>
 <!-- NAVIGATION -->
-<nav class="navigation"><a class="nav-btn" href="./machines.html">Machine Inventory</a><a class="nav-btn brown" href="./history.html">Loaner History</a></nav>
-<nav class="navigation" id="admin-navigation" hidden><a class="nav-btn" href="./staff.html">User Management</a></nav>
+<nav class="navigation"><a class="nav-btn" href="./machines.html">Machine Inventory</a><a class="nav-btn brown" hidden="" href="./history.html">Loaner History</a></nav>
+<nav class="navigation" hidden="" id="admin-navigation"><a class="nav-btn" href="./staff.html">User Management</a></nav>
 <!-- MACHINE STATUS COUNTERS -->
 <section class="stats">
 <article class="card">
@@ -213,20 +213,20 @@
 <!-- QUICK ACTIONS -->
 <section class="quick-actions">
 <h2>Quick Actions</h2>
-<div class="action-grid"><a class="action-card" href="./machines.html"><h3>Machine Inventory</h3><p>Browse machines, check availability and print their QR labels.</p></a><a class="action-card brown" href="./history.html"><h3>Loaner History</h3><p>View current loans, returns and transaction details.</p></a></div>
+<div class="action-grid"><a class="action-card" href="./machines.html"><h3>Machine Inventory</h3><p>Browse machines, check availability and print their QR labels.</p></a><a class="action-card brown" hidden="" href="./history.html"><h3>Loaner History</h3><p>View current loans, returns and transaction details.</p></a></div>
 </section>
 <!-- SYSTEM MESSAGE -->
 <p id="message" role="status"></p>
 </main>
 <script src="js/dashboard.js" type="module"></script>
-<div class="quick-add">
-  <nav class="quick-add-menu" id="quickAddMenu" aria-label="Add new record" hidden>
-    <a href="./register.html">☕ Register Machine</a>
-    <a href="./accessories.html">🔧 Register Accessories</a>
-    <a href="./delivery.html">🚚 For Delivery to Client</a>
-  </nav>
-  <button class="fab-add" id="quickAddButton" type="button" aria-expanded="false" aria-controls="quickAddMenu" aria-label="Add inventory or delivery">+</button>
-  <span class="quick-add-label">Add new</span>
+<div class="quick-add" hidden="">
+<nav aria-label="Add new record" class="quick-add-menu" hidden="" id="quickAddMenu">
+<a href="./register.html">☕ Register Machine</a>
+<a href="./accessories.html">🔧 Register Accessories</a>
+<a href="./delivery.html">🚚 For Delivery to Client</a>
+</nav>
+<button aria-controls="quickAddMenu" aria-expanded="false" aria-label="Add inventory or delivery" class="fab-add" id="quickAddButton" type="button">+</button>
+<span class="quick-add-label">Add new</span>
 </div>
 <script src="./js/add-menu.js" type="module"></script>
 </body>

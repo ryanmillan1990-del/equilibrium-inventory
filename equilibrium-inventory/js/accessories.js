@@ -2,6 +2,7 @@ import { db, currentStaff } from './client.js';
 const $ = id => document.getElementById(id);
 const staff = await currentStaff();
 if (!staff) location.replace('./index.html');
+else if (staff.role !== 'ADMIN') location.replace('./dashboard.html');
 else {
   async function refresh() {
     const { data, error } = await db.from('inventory_accessories').select('sku,name,quantity,unit,location').order('created_at',{ascending:false}).limit(150);
@@ -16,7 +17,7 @@ else {
   $('accessoryForm').addEventListener('submit', async event => {
     event.preventDefault(); $('saveBtn').disabled=true; $('message').textContent='Saving...';
     try {
-      const { error }=await db.rpc('register_accessory',{
+      const { error }=await db.rpc('admin_register_accessory',{
         p_sku:$('sku').value.trim(),p_name:$('name').value.trim(),
         p_quantity:Number($('quantity').value),p_unit:$('unit').value,
         p_location:$('location').value.trim(),p_notes:$('notes').value.trim()

@@ -18,3 +18,10 @@ values('EQ-0001','JL22 Coffee Machine','Jetinno','JL22','JL22-TEST-001','Coffee 
 10. Verify a nonexistent/unapproved Auth account cannot access machine data. Do not create browser-side registration or direct client write actions.
 
 No borrow, return, or general machine registration writes are exposed in Phase 1. Add controlled RPCs in the following stage.
+
+## Updated Admin Approval & Technical Workspace (Phase 12)
+
+See **`PHASE12_DESIGN_AND_APPROVAL_SETUP.md`** for the new role-based UI,
+required Supabase SQL migration (`sql/012_machine_requests_and_permissions.sql`),
+admin approval flow, deployment sequence, and safety checks. The migration is
+**not** applied automatically by GitHub or Vercel.

@@ -1,0 +1,145 @@
+/* Equilibrium Intertrade — shared 2026 interface language */
+:root {
+  --forest:#153e2e;--forest-2:#24664a;--coffee:#805a40;
+  --ink:#193327;--muted:#6b7c72;--line:#dce7dd;--paper:#fff;
+  --shade:#f1f6f0;--shadow:0 20px 55px rgba(18,57,37,.09);
+  font-family:Inter,"Segoe UI",system-ui,sans-serif;
+}
+* { box-sizing:border-box; }
+html { min-height:100%; }
+body.app-page {
+  display:block!important;
+  margin:0; min-height:100vh; color:var(--ink);
+  background-color:#f1f5ee!important;
+  background-image:
+    radial-gradient(ellipse at 11% 5%,rgba(87,147,102,.17) 0%,transparent 48%),
+    radial-gradient(ellipse at 94% 92%,rgba(165,122,78,.15) 0%,transparent 51%),
+    linear-gradient(150deg,#eef5ed,#faf9f5 58%,#e9f1ea)!important;
+  background-attachment:fixed!important;
+  font-family:Inter,"Segoe UI",system-ui,sans-serif!important;
+}
+body.app-page::before {
+  content:""; pointer-events:none;position:fixed;inset:0;z-index:0;
+  background:repeating-linear-gradient(115deg, transparent 0,transparent 34px,rgba(37,86,60,.012) 34px,rgba(37,86,60,.012) 35px);
+}
+body.app-page > * { position:relative;z-index:1; }
+body.app-page main.wide,body.app-page main.container,body.app-page .wide {
+  max-width:1240px; width:calc(100% - 40px);margin:42px auto;
+}
+body.app-page main.borrow-container,body.app-page main.return-container,
+body.app-page .registration-container {
+  width:min(740px,calc(100% - 32px));margin:48px auto;
+  border-radius:22px;padding:34px;background:rgba(255,255,255,.97);
+  box-shadow:var(--shadow);border:1px solid rgba(213,229,216,.86);
+}
+body.app-page main.staff-admin {
+  width:min(1150px,calc(100% - 30px))!important;max-width:1150px!important;
+  margin:42px auto!important;box-shadow:var(--shadow)!important;
+  border:1px solid var(--line);border-radius:22px;
+}
+body.app-page h1,body.app-page h2,body.app-page h3 { color:var(--forest);letter-spacing:-.024em; }
+body.app-page h1 { font-weight:800; }
+body.app-page .subtitle,body.app-page .hint,body.app-page small { color:var(--muted); }
+body.app-page .card,body.app-page .panel,body.app-page .entry-panel,body.app-page .action-card {
+  background:rgba(255,255,255,.97);border:1px solid var(--line);
+  box-shadow:var(--shadow);border-radius:17px;
+}
+body.app-page .card { padding:25px; }
+body.app-page .panel,body.app-page .entry-panel {padding:27px;margin-bottom:22px;}
+body.app-page .stats {gap:16px;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));}
+body.app-page .stats .card { border-top:4px solid var(--forest-2); }
+body.app-page .stats strong { color:var(--forest);font-size:clamp(28px,4vw,38px); }
+body.app-page .dashboard-header,body.app-page .page-heading,body.app-page > header {
+  background:linear-gradient(115deg,var(--forest),#276248);
+  border-radius:20px;padding:27px 30px;color:white!important;
+  box-shadow:0 14px 34px rgba(20,66,45,.20);border:0;
+}
+body.app-page .dashboard-header h1,body.app-page .page-heading h1,body.app-page > header h1 {color:#fff!important;}
+body.app-page .dashboard-header .subtitle,body.app-page .page-heading .subtitle,body.app-page > header div,
+body.app-page .dashboard-header #welcome {color:#d3e7d9!important;}
+body.app-page .navigation { gap:10px;margin:19px 0; }
+body.app-page .nav-btn,body.app-page .btn,body.app-page .action-btn,
+body.app-page button:not(.fab-add) {
+  font-family:inherit;font-weight:700;transition:background-color .2s ease,transform .18s ease,box-shadow .18s ease;
+  border-radius:10px;
+}
+body.app-page button:not(.fab-add),body.app-page .btn,body.app-page .nav-btn {
+  background:var(--forest-2);border:1px solid transparent;color:white;
+  padding:11px 17px;text-decoration:none;
+}
+body.app-page button:hover:not(:disabled):not(.fab-add),body.app-page .nav-btn:hover,body.app-page .btn:hover {
+  background:var(--forest);transform:translateY(-1px);
+}
+body.app-page .brown,body.app-page button.reject,body.app-page .secondary {background:var(--coffee)!important;color:white!important;}
+body.app-page .action-grid {gap:16px;}
+body.app-page .action-card {
+  padding:24px;display:block;color:var(--ink);text-decoration:none;
+  border-left:5px solid var(--forest-2);
+}
+body.app-page .action-card:hover {transform:translateY(-4px);box-shadow:0 25px 45px rgba(25,58,39,.14);}
+body.app-page .action-card.brown {background:#fff!important;color:var(--ink)!important;border-left-color:var(--coffee)!important;}
+body.app-page input,body.app-page textarea,body.app-page select {
+  border:1px solid #c8d9cb; border-radius:10px;background:#fbfdfb;color:var(--ink);
+  font-family:inherit;font-size:14px;max-width:100%;
+}
+body.app-page input:focus,body.app-page textarea:focus,body.app-page select:focus {
+  outline:3px solid rgba(63,141,95,.16);border-color:#387c54;
+}
+body.app-page table {background:white;border-collapse:separate;border-spacing:0;width:100%;}
+body.app-page .table-wrap,body.app-page #records,body.app-page .staff-table-container {overflow-x:auto;max-width:100%;border-radius:12px;}
+body.app-page th {background:var(--forest);color:#fff!important;white-space:nowrap;font-weight:700;font-size:12px;}
+body.app-page td {line-height:1.5; font-size:13px;border-bottom:1px solid #e6eee7;}
+body.app-page tbody tr:hover {background:#f5faf5;}
+body.app-page .role-badge {
+  display:inline-flex;padding:7px 12px;border-radius:100px;
+  background:rgba(234,246,235,.13);border:1px solid rgba(255,255,255,.25);
+  color:#e8f3e9;font-size:11px;font-weight:750;margin:8px 0 0;
+}
+body.app-page .eyebrow {color:#bdddc5!important;letter-spacing:2px;font-size:11px;font-weight:800;margin:0 0 7px;}
+body.app-page .page-heading {display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:20px;}
+body.app-page .page-heading p {margin:5px 0 0;}
+body.app-page .page-heading a {background:rgba(255,255,255,.14)!important;border:1px solid rgba(255,255,255,.30)!important;}
+body.app-page .section-heading {display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:19px;}
+body.app-page .section-heading h2 {margin:0 0 6px;}
+body.app-page .section-heading p {margin:0;color:var(--muted);font-size:13px;}
+body.app-page .filters {display:flex;flex-wrap:wrap;gap:10px;margin:18px 0;}
+body.app-page .filters input {flex:1 1 240px;}
+body.app-page .filters select {flex:0 1 170px;}
+body.app-page .filters input,body.app-page .filters select {margin:0;min-height:43px;}
+body.app-page .details-cell {min-width:220px;white-space:pre-line;line-height:1.65;}
+body.app-page .review-actions {display:flex;gap:8px;flex-wrap:wrap;}
+body.app-page .review-actions button {white-space:nowrap;margin:0;}
+body.app-page .status-pill {display:inline-flex;border-radius:100px;padding:5px 10px;font-size:11px;font-weight:800;letter-spacing:.05em;background:#ecf3ea;color:#375b42;}
+body.app-page .status-pill.pending {background:#fff2dc;color:#95631d;}
+body.app-page .status-pill.approved {background:#dcf3e5;color:#1b6c43;}
+body.app-page .status-pill.rejected {background:#fbe7e2;color:#a23d2d;}
+body.app-page #message.error,body.app-page p.error {color:#b6362a!important;}
+body.app-page #message.success,body.app-page p.success {color:#1d7849!important;}
+body.app-page [hidden] {display:none!important;}
+body.app-page .quick-add:not([hidden]) {z-index:10;}
+/* New subtle login backdrop; keep original centered card and tab overrides. */
+body.staff-access-page {
+  background:radial-gradient(circle at 12% 11%,#dbe9dc 0,transparent 40%),
+    radial-gradient(circle at 88% 88%,#ead9c8 0,transparent 42%),
+    linear-gradient(160deg,#f4f8f2,#edf3ed)!important;
+  background-attachment:fixed!important;
+}
+@media (max-width:750px) {
+  body.app-page main.wide,body.app-page main.container,body.app-page .wide {width:calc(100% - 22px);margin:16px auto;}
+  body.app-page main.borrow-container,body.app-page main.return-container,
+  body.app-page .registration-container {padding:23px 19px;margin:16px auto;}
+  body.app-page .panel,body.app-page .entry-panel {padding:18px;}
+  body.app-page .dashboard-header,body.app-page .page-heading,body.app-page > header {padding:22px 17px;}
+  body.app-page .staff-admin {padding:21px 14px!important;}
+  body.app-page .navigation {flex-direction:row;}
+  body.app-page .nav-btn {text-align:center;}
+}
+@media print {
+  body.app-page {background:#fff!important;}
+  body.app-page .panel,body.app-page .card {box-shadow:none;}
+  body.app-page .quick-add,body.app-page .navigation {display:none!important;}
+}
+/* Override the narrow login-card default on dashboard statistics / large pages. */
+body.app-page .card:not(section) {width:auto;max-width:none;}
+/* Keep workflow actions readable even on narrow tablets. */
+body.app-page.workflow-page .table-wrap table,body.app-page .workflow-page .table-wrap table {min-width:860px;}

@@ -123,8 +123,8 @@
       }
     }
   </style>
-<link href="./css/enhancements.css" rel="stylesheet"/></head>
-<body>
+<link href="./css/enhancements.css" rel="stylesheet"/><link href="./css/app-theme.css" rel="stylesheet"/></head>
+<body class="app-page">
 <header>
 <h1>Machine Inventory</h1>
 <div>Equilibrium Intertrade</div>
@@ -132,7 +132,6 @@
 <main>
 <div class="actions">
 <a class="btn utility-back" href="./dashboard.html">← Back</a>
-
 <button id="refreshBtn" type="button">
       Refresh Inventory
     </button>
@@ -179,14 +178,14 @@
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="./js/inventory.js" type="module"></script>
-<div class="quick-add">
-  <nav class="quick-add-menu" id="quickAddMenu" aria-label="Add new record" hidden>
-    <a href="./register.html">☕ Register Machine</a>
-    <a href="./accessories.html">🔧 Register Accessories</a>
-    <a href="./delivery.html">🚚 For Delivery to Client</a>
-  </nav>
-  <button class="fab-add" id="quickAddButton" type="button" aria-expanded="false" aria-controls="quickAddMenu" aria-label="Add inventory or delivery">+</button>
-  <span class="quick-add-label">Add new</span>
+<div class="quick-add" hidden="">
+<nav aria-label="Add new record" class="quick-add-menu" hidden="" id="quickAddMenu">
+<a href="./register.html">☕ Register Machine</a>
+<a href="./accessories.html">🔧 Register Accessories</a>
+<a href="./delivery.html">🚚 For Delivery to Client</a>
+</nav>
+<button aria-controls="quickAddMenu" aria-expanded="false" aria-label="Add inventory or delivery" class="fab-add" id="quickAddButton" type="button">+</button>
+<span class="quick-add-label">Add new</span>
 </div>
 <script src="./js/add-menu.js" type="module"></script>
 </body>

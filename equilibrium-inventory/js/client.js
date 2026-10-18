@@ -23,57 +23,13 @@ export const db = createClient(
 );
 
 export async function currentStaff() {
-
-  console.log('========== STAFF AUTH CHECK ==========');
-
-  // STEP 1: VERIFY LOGGED-IN USER
-  const { data: auth, error: authError } =
-    await db.auth.getUser();
-
-  console.log('User ID:', auth?.user?.id);
-  console.log('Authentication Error:', authError);
-
-  if (authError || !auth?.user) {
-    console.log('No authenticated user found.');
-    return null;
-  }
-
-  // STEP 2: CHECK STAFF PROFILE
-  const { data: staff, error: staffError } =
-    await db
-      .from('staff_profiles')
-      .select('id, full_name, role, is_active')
-      .eq('id', auth.user.id)
-      .maybeSingle();
-
-  console.log('Staff Data:', staff);
-  console.log('Staff Error:', staffError);
-
-  if (staffError) {
-    throw staffError;
-  }
-
-  // STEP 3: VERIFY AUTHORIZATION
-  if (!staff) {
-    console.error(
-      'Staff profile not found or not visible under RLS.'
-    );
-    return null;
-  }
-
-  if (staff.is_active !== true) {
-    console.error('Staff account is inactive.');
-    return null;
-  }
-
-  if (!['ADMIN', 'WAREHOUSE', 'TECHNICAL'].includes(staff.role)) {
-    console.error('Invalid staff role:', staff.role);
-    return null;
-  }
-
-  console.log('AUTHORIZED STAFF:', staff.full_name);
-  console.log('ROLE:', staff.role);
-  console.log('======================================');
-
+  const {data:{user},error:authError}=await db.auth.getUser();
+  if(authError || !user) return null;
+  const {data:staff,error}=await db.from('staff_profiles')
+    .select('id,full_name,role,is_active,approval_status')
+    .eq('id',user.id).maybeSingle();
+  if(error) throw error;
+  if(!staff || staff.is_active !== true || staff.approval_status !== 'APPROVED'
+      || !['ADMIN','WAREHOUSE','TECHNICAL'].includes(staff.role)) return null;
   return staff;
 }

@@ -1,208 +1,109 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-  <title>Equilibrium Intertrade | Staff Portal</title>
-
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/enhancements.css">
-  <link rel="stylesheet" href="./css/staff.css">
-  <link rel="stylesheet" href="./css/login-redesign.css">
-</head>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Equilibrium Intertrade | Staff Portal</title>
+<link href="./css/style.css" rel="stylesheet"/>
+<link href="./css/enhancements.css" rel="stylesheet"/>
+<link href="./css/staff.css" rel="stylesheet"/>
+<link href="./css/login-redesign.css" rel="stylesheet"/>
+<link href="./css/app-theme.css" rel="stylesheet"/></head>
 <body class="staff-access-page">
-
-  <main class="staff-login">
-
-    <!-- COMPANY BRANDING -->
-    <div class="brand-header">
-
-      <img
-        src="./images/equilibrium-logo.png"
-        alt="Equilibrium Intertrade Corporation"
-        class="company-logo"
-      >
-
-      <p class="brand-subtitle">
+<main class="staff-login">
+<!-- COMPANY BRANDING -->
+<div class="brand-header">
+<img alt="Equilibrium Intertrade Corporation" class="company-logo" src="./images/equilibrium-logo.png"/>
+<p class="brand-subtitle">
         Machine Inventory &amp; Loaner Management
       </p>
-
-      <span class="portal-label">STAFF PORTAL</span>
-
-    </div>
-
-    <!-- TABS -->
-    <div class="staff-tabs"
-         role="tablist"
-         aria-label="Staff account access">
-
-      <button id="login-tab"
-              type="button"
-              role="tab"
-              aria-controls="login-section"
-              aria-selected="true">
+<span class="portal-label">STAFF PORTAL</span>
+</div>
+<!-- TABS -->
+<div aria-label="Staff account access" class="staff-tabs" role="tablist">
+<button aria-controls="login-section" aria-selected="true" id="login-tab" role="tab" type="button">
         Sign In
       </button>
-
-      <button id="register-tab"
-              type="button"
-              role="tab"
-              aria-controls="register-section"
-              aria-selected="false">
+<button aria-controls="register-section" aria-selected="false" id="register-tab" role="tab" type="button">
         Register
       </button>
-
-    </div>
-
-    <!-- LOGIN -->
-    <section id="login-section">
-
-      <h2>Welcome Back</h2>
-
-      <p class="section-description">
+</div>
+<!-- LOGIN -->
+<section id="login-section">
+<h2>Welcome Back</h2>
+<p class="section-description">
         Sign in to manage company inventory.
       </p>
-
-      <form id="login">
-
-        <label for="email">
+<form id="login">
+<label for="email">
           Email Address
-          <input
-            id="email"
-            type="email"
-            placeholder="Enter your email"
-            autocomplete="username"
-            required
-          >
-        </label>
-
-        <label for="password">
+          <input autocomplete="username" id="email" placeholder="Enter your email" required="" type="email"/>
+</label>
+<label for="password">
           Password
-          <input
-            id="password"
-            type="password"
-            placeholder="Enter your password"
-            autocomplete="current-password"
-            required
-          >
-        </label>
-
-        <button id="submit"
-                type="submit"
-                class="primary-action">
+          <input autocomplete="current-password" id="password" placeholder="Enter your password" required="" type="password"/>
+</label>
+<button class="primary-action" id="submit" type="submit">
           Sign In
         </button>
-
-      </form>
-
-      <p class="access-notice">
+</form>
+<p class="access-notice">
         Only approved and authorized company staff
         may access the inventory system.
       </p>
-
-    </section>
-
-    <!-- REGISTRATION -->
-    <section id="register-section" hidden>
-
-      <h2>Staff Registration</h2>
-
-      <p class="section-description">
+</section>
+<!-- REGISTRATION -->
+<section hidden="" id="register-section">
+<h2>Staff Registration</h2>
+<p class="section-description">
         Request an account for inventory access.
       </p>
-
-      <form id="registration">
-
-        <label for="full-name">
+<form id="registration">
+<label for="full-name">
           Full Name
-          <input
-            id="full-name"
-            type="text"
-            placeholder="Enter your full name"
-            autocomplete="name"
-            maxlength="100"
-            required
-          >
-        </label>
-
-        <label for="requested-role">
+          <input autocomplete="name" id="full-name" maxlength="100" placeholder="Enter your full name" required="" type="text"/>
+</label>
+<label for="requested-role">
           Account Type
-          <select id="requested-role" required>
-            <option value="TECHNICAL">
+          <select id="requested-role" required="">
+<option value="TECHNICAL">
               Technical Staff
             </option>
-            <option value="ADMIN">
+<option value="ADMIN">
               Administrator
             </option>
-          </select>
-        </label>
-
-        <label for="generated-email">
+</select>
+</label>
+<label for="generated-email">
           Generated Login Email
-          <input
-            id="generated-email"
-            type="email"
-            placeholder="full_name@equinventory.com"
-            readonly
-          >
-        </label>
-
-        <label for="new-password">
+          <input id="generated-email" placeholder="full_name@equinventory.com" readonly="" type="email"/>
+</label>
+<label for="new-password">
           Create Password
-          <input
-            id="new-password"
-            type="password"
-            minlength="12"
-            autocomplete="new-password"
-            placeholder="Minimum 12 characters"
-            required
-          >
-        </label>
-
-        <label for="confirm-password">
+          <input autocomplete="new-password" id="new-password" minlength="12" placeholder="Minimum 12 characters" required="" type="password"/>
+</label>
+<label for="confirm-password">
           Confirm Password
-          <input
-            id="confirm-password"
-            type="password"
-            minlength="12"
-            autocomplete="new-password"
-            placeholder="Confirm password"
-            required
-          >
-        </label>
-
-        <button id="register-submit"
-                type="submit"
-                class="primary-action">
+          <input autocomplete="new-password" id="confirm-password" minlength="12" placeholder="Confirm password" required="" type="password"/>
+</label>
+<button class="primary-action" id="register-submit" type="submit">
           Request Registration
         </button>
-
-      </form>
-
-      <p class="access-notice">
+</form>
+<p class="access-notice">
         Registration requires approval from an
         existing administrator. Your generated email
         is an internal login identifier.
       </p>
-
-    </section>
-
-    <p id="message"
-       role="status"
-       aria-live="polite"></p>
-
-    <footer class="login-footer">
+</section>
+<p aria-live="polite" id="message" role="status"></p>
+<footer class="login-footer">
       © 2026 Equilibrium Intertrade Corporation
       <span>Authorized Staff Access Only</span>
-    </footer>
-
-  </main>
-
-  <script type="module" src="./js/login.js"></script>
-
+</footer>
+</main>
+<script src="./js/login.js" type="module"></script>
 </body>
 </html>

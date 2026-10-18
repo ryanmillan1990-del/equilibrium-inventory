@@ -10,7 +10,7 @@ async function verifyAccess() {
   try {
     const staff = await currentStaff();
 
-    if (!staff) {
+    if (!staff || staff.role !== 'ADMIN') {
       window.location.replace('./index.html');
       return;
     }
@@ -57,13 +57,13 @@ form.addEventListener('submit', async (event) => {
     // VERIFY AUTHORIZED STAFF
     const staff = await currentStaff();
 
-    if (!staff) {
+    if (!staff || staff.role !== 'ADMIN') {
       throw new Error('Unauthorized staff account.');
     }
 
     // CALL SUPABASE DATABASE FUNCTION
     const { data, error } = await db.rpc(
-      'register_machine',
+      'admin_register_machine',
       {
         p_machine_name: machineName,
         p_serial_number: serialNumber,

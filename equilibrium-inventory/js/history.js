@@ -37,7 +37,7 @@ async function loadHistory() {
   showMessage('Loading transaction history...');
 
   const { data, error } = await db.rpc(
-    'get_loan_history'
+    'get_admin_loan_history'
   );
 
   if (error) throw error;
@@ -278,6 +278,8 @@ try {
 
   if (!staff) {
     window.location.replace('./index.html');
+  } else if (staff.role !== 'ADMIN') {
+    window.location.replace('./dashboard.html');
   } else {
     byId('welcome').textContent =
       `${staff.full_name} • ${staff.role}`;

@@ -2,6 +2,7 @@ import { db, currentStaff } from './client.js';
 const $ = id => document.getElementById(id);
 const staff = await currentStaff();
 if (!staff) location.replace('./index.html');
+else if (staff.role !== 'ADMIN') location.replace('./dashboard.html');
 else {
   // Use today's Manila date, not the viewer's timezone.
   $('deliveryDate').value=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Manila',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -18,7 +19,7 @@ else {
   $('deliveryForm').addEventListener('submit',async event=>{
     event.preventDefault(); $('saveBtn').disabled=true; $('message').textContent='Saving...';
     try {
-      const {error}=await db.rpc('create_client_delivery',{
+      const {error}=await db.rpc('admin_create_client_delivery',{
         p_client_name:$('clientName').value.trim(), p_client_contact:$('clientContact').value.trim(),
         p_delivery_address:$('deliveryAddress').value.trim(),p_item_type:$('itemType').value,
         p_item_name:$('itemName').value.trim(),p_item_code:$('itemCode').value.trim(),

@@ -83,13 +83,13 @@
     .error { color: #b42318; }
     .success { color: #176b38; }
   </style>
-<link href="./css/enhancements.css" rel="stylesheet"/></head>
-<body>
+<link href="./css/enhancements.css" rel="stylesheet"/><link href="./css/app-theme.css" rel="stylesheet"/></head>
+<body class="app-page">
 <main class="borrow-container">
 <a class="back-link" href="./machines.html" id="backLink">
     ← Back to Machine Details
   </a>
-<h1>Borrow Machine</h1>
+<h1>Borrow Request</h1>
 <p class="subtitle">
     Equilibrium Intertrade Corp.
   </p>
@@ -134,9 +134,7 @@
         </label>
 <input id="dueAt" required="" type="datetime-local"/>
 </div>
-<button id="borrowButton" type="submit">
-        Confirm Borrowing
-      </button>
+<button id="borrowButton" type="submit">Send Borrow Request to Admin</button>
 </form>
 </section>
 </main>

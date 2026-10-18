@@ -1,57 +1,46 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-  <title>User Management | Equilibrium Intertrade</title>
-
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/enhancements.css">
-  <link rel="stylesheet" href="./css/staff.css">
-  <link rel="stylesheet" href="./css/staff-redesign.css">
-</head>
-
-<body class="staff-management-page">
-
-  <main class="staff-admin card">
-
-    <!-- HEADER -->
-    <header class="staff-page-header">
-      <div>
-        <p class="staff-eyebrow">EQUILIBRIUM INTERTRADE</p>
-        <h1>User Management</h1>
-        <p class="subtitle">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Management | Equilibrium Intertrade</title>
+<link href="./css/style.css" rel="stylesheet"/>
+<link href="./css/enhancements.css" rel="stylesheet"/>
+<link href="./css/staff.css" rel="stylesheet"/>
+<link href="./css/staff-redesign.css" rel="stylesheet"/>
+<link href="./css/app-theme.css" rel="stylesheet"/></head>
+<body class="staff-management-page app-page">
+<main class="staff-admin card">
+<!-- HEADER -->
+<header class="staff-page-header">
+<div>
+<p class="staff-eyebrow">EQUILIBRIUM INTERTRADE</p>
+<h1>User Management</h1>
+<p class="subtitle">
           Manage staff access and review account requests.
         </p>
-      </div>
-
-      <a class="staff-back-link" href="./dashboard.html">
+</div>
+<a class="staff-back-link" href="./dashboard.html">
         ← Back to Dashboard
       </a>
-    </header>
-
-    <!-- STAFF ACCOUNT LIST -->
-    <section class="staff-list-section">
-      <div class="staff-section-heading">
-        <h2>Staff Accounts</h2>
-        <p>Review pending requests and existing staff.</p>
-      </div>
-
-      <div class="staff-table-container">
-        <div id="requests">
+</header>
+<!-- STAFF ACCOUNT LIST -->
+<section class="staff-list-section">
+<div class="staff-section-heading">
+<h2>Staff Accounts</h2>
+<p>Review pending requests and existing staff.</p>
+</div>
+<div class="staff-table-container">
+<div id="requests">
           Loading staff accounts...
         </div>
-      </div>
-    </section>
-
-    <!-- MESSAGES -->
-    <p id="message" role="status" aria-live="polite"></p>
-
-  </main>
-
-  <script type="module" src="./js/staff.js"></script>
+</div>
+</section>
+<!-- MESSAGES -->
+<p aria-live="polite" id="message" role="status"></p>
+</main>
+<script src="./js/staff.js" type="module"></script>
 </body>
 </html>

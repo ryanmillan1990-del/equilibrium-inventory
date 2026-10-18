@@ -141,8 +141,14 @@ async function loadMachineDetails() {
     borrowBtn.disabled = true;
     returnBtn.disabled = true;
 
+    // Administrators review requests; Technical and Warehouse staff submit them.
+    const mayRequest = ['TECHNICAL', 'WAREHOUSE'].includes(staff.role);
+    if (staff.role === 'ADMIN') {
+      notice.textContent = 'Administrator view: borrowing and returning require staff requests. Review them in Approvals.';
+    }
+
     // 7. AVAILABLE MACHINE
-    if (machine.status === 'AVAILABLE') {
+    if (mayRequest && machine.status === 'AVAILABLE') {
 
       borrowBtn.hidden = false;
 
@@ -160,7 +166,7 @@ async function loadMachineDetails() {
         };
 
         notice.textContent =
-          'This machine is available for borrowing.';
+          'Available: send a borrow request for Administrator approval.';
 
       } else {
 
@@ -172,7 +178,7 @@ async function loadMachineDetails() {
     }
 
     // 8. BORROWED MACHINE
-    else if (machine.status === 'BORROWED') {
+    else if (mayRequest && machine.status === 'BORROWED') {
 
       returnBtn.hidden = false;
       returnBtn.disabled = false;
@@ -182,7 +188,7 @@ async function loadMachineDetails() {
       };
 
       notice.textContent =
-        'This machine is currently borrowed. Select Return Machine to process its return.';
+        'Borrowed: send a return request for Administrator approval.';
 
     }
 
@@ -195,10 +201,10 @@ async function loadMachineDetails() {
     }
 
     // 10. UNKNOWN STATUS
-    else {
+    else if (mayRequest) {
 
       notice.textContent =
-        'This machine is currently unavailable.';
+        'This machine is currently unavailable for a request.';
 
     }
 
