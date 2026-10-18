@@ -153,7 +153,7 @@
       }
     }
   </style>
-<link href="./css/enhancements.css" rel="stylesheet"/><link href="./css/app-theme.css" rel="stylesheet"/></head>
+<link href="./css/enhancements.css" rel="stylesheet"/><link href="./css/app-theme.css" rel="stylesheet"/><link href="./css/dashboard-nav.css" rel="stylesheet"/></head>
 <body class="app-page">
 <main class="wide">
 <!-- DASHBOARD HEADER -->
@@ -171,9 +171,25 @@
       Log out
     </button>
 </header>
-<!-- NAVIGATION -->
-<nav class="navigation"><a class="nav-btn" href="./machines.html">Machine Inventory</a><a class="nav-btn brown" hidden="" href="./history.html">Loaner History</a></nav>
-<nav class="navigation" hidden="" id="admin-navigation"><a class="nav-btn" href="./staff.html">User Management</a></nav>
+<!-- CLEAN DASHBOARD NAVIGATION: Admin and Technical see only allowed sections -->
+<nav class="navigation dashboard-nav" aria-label="Main dashboard navigation" id="dashboard-navigation">
+  <a class="nav-btn dashboard-nav-link" href="./machines.html">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+    <span>Machine Inventory</span>
+  </a>
+  <a class="nav-btn dashboard-nav-link" id="history-nav-link" href="./history.html" hidden>
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+    <span>Loaner History</span>
+  </a>
+  <a class="nav-btn dashboard-nav-link dashboard-nav-approval" id="requests-nav-link" href="./approvals.html" hidden>
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6"/><rect x="4" y="4" width="16" height="17" rx="2"/><path d="M8 10h8M8 14h8M8 18h5"/></svg>
+    <span>Request Approvals</span>
+  </a>
+  <a class="nav-btn dashboard-nav-link" id="users-nav-link" href="./staff.html" hidden>
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2c0-3 3-5 6-5s6 2 6 5v2"/><path d="M16 5a3 3 0 0 1 0 6M17 14c2 0 4 2 4 5v1"/></svg>
+    <span>User Management</span>
+  </a>
+</nav>
 <!-- MACHINE STATUS COUNTERS -->
 <section class="stats">
 <article class="card">
@@ -209,11 +225,6 @@
 <a class="nav-btn" href="./machines.html">
       View All Machines →
     </a>
-</section>
-<!-- QUICK ACTIONS -->
-<section class="quick-actions">
-<h2>Quick Actions</h2>
-<div class="action-grid"><a class="action-card" href="./machines.html"><h3>Machine Inventory</h3><p>Browse machines, check availability and print their QR labels.</p></a><a class="action-card brown" hidden="" href="./history.html"><h3>Loaner History</h3><p>View current loans, returns and transaction details.</p></a></div>
 </section>
 <!-- SYSTEM MESSAGE -->
 <p id="message" role="status"></p>

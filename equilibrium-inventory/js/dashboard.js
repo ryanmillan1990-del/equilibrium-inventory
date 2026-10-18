@@ -26,43 +26,24 @@ byId('logout').addEventListener('click', async () => {
       `${staff.full_name} • ${staff.role}`;
 
     const isAdmin = staff.role === 'ADMIN';
-    const adminNav = byId('admin-navigation');
-    if (adminNav) adminNav.hidden = !isAdmin;
-    // Admin-only quick add and history links remain invisible for Technical accounts.
+    const historyLink = byId('history-nav-link');
+    const requestsLink = byId('requests-nav-link');
+    const usersLink = byId('users-nav-link');
     const quickAdd = document.querySelector('.quick-add');
+
+    // Never show privileged links until the user's server-backed role is checked.
+    if (historyLink) historyLink.hidden = !isAdmin;
+    if (usersLink) usersLink.hidden = !isAdmin;
     if (quickAdd) quickAdd.hidden = !isAdmin;
-    document.querySelectorAll('a[href="./history.html"]').forEach(link => {
-      link.hidden = !isAdmin;
-    });
-    const navigation = document.querySelector('.navigation');
-    if (navigation) {
-      const link = document.createElement('a');
-      link.className = 'nav-btn brown';
-      link.href = isAdmin ? './approvals.html' : './my-requests.html';
-      link.textContent = isAdmin ? 'Request Approvals' : 'My Requests';
-      navigation.appendChild(link);
+
+    // One requests link, with a role-appropriate destination and label.
+    if (requestsLink) {
+      requestsLink.href = isAdmin ? './approvals.html' : './my-requests.html';
+      const label = requestsLink.querySelector('span');
+      if (label) label.textContent = isAdmin ? 'Request Approvals' : 'My Requests';
+      requestsLink.hidden = false;
     }
-    if (adminNav && isAdmin) {
-      for (const [href,label] of [
-        ['./register.html','Register Machine'],
-        ['./accessories.html','Accessories'],
-        ['./delivery.html','Client Deliveries']
-      ]) {
-        const a=document.createElement('a');a.href=href;a.className='nav-btn';a.textContent=label;
-        adminNav.append(a);
-      }
-    }
-    const actions = document.querySelector('.action-grid');
-    if (actions) {
-      const a=document.createElement('a');
-      a.href=isAdmin?'./approvals.html':'./my-requests.html';
-      a.className='action-card';
-      const heading=document.createElement('h3');heading.textContent=isAdmin?'Approve Machine Requests':'Track My Requests';
-      const desc=document.createElement('p');desc.textContent=isAdmin
-        ?'Review and approve or reject borrow and return requests.'
-        :'View your borrow/return request status after submission.';
-      a.append(heading,desc);actions.append(a);
-    }
+
     const welcomeText = isAdmin
       ? 'Administrator • Full Inventory Control'
       : 'Technical Workspace • QR Viewing and Requests';
