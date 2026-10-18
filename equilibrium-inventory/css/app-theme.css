@@ -143,3 +143,53 @@ body.staff-access-page {
 body.app-page .card:not(section) {width:auto;max-width:none;}
 /* Keep workflow actions readable even on narrow tablets. */
 body.app-page.workflow-page .table-wrap table,body.app-page .workflow-page .table-wrap table {min-width:860px;}
+
+/* FLOATING QUICK-ADD FIX (2026-10):
+   The general `body.app-page > *` rule above makes direct children
+   position:relative. Override it for the quick-add launcher so it
+   stays in the viewport while scrolling in either direction. */
+body.app-page > .quick-add:not([hidden]) {
+  position: fixed !important;
+  right: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  z-index: 2000 !important;
+  margin: 0;
+}
+body.app-page > .quick-add[hidden] {
+  display: none !important;
+}
+body.app-page > .quick-add .fab-add {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+body.app-page > .quick-add .quick-add-menu {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 14px);
+  z-index: 1;
+}
+@media (max-width: 650px) {
+  body.app-page > .quick-add:not([hidden]) {
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+  body.app-page > .quick-add .fab-add {
+    width: 58px;
+    height: 58px;
+  }
+  body.app-page > .quick-add .quick-add-menu {
+    min-width: min(260px, calc(100vw - 32px));
+  }
+}
+@media print {
+  body.app-page > .quick-add {
+    display: none !important;
+  }
+}
