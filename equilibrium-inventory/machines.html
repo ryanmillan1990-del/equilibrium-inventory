@@ -179,5 +179,15 @@
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="./js/inventory.js" type="module"></script>
-<a aria-label="Register new machine" class="fab-add" href="./register.html" title="Register new machine">+</a><span aria-hidden="true" class="fab-tip">Add machine</span></body>
+<div class="quick-add">
+  <nav class="quick-add-menu" id="quickAddMenu" aria-label="Add new record" hidden>
+    <a href="./register.html">☕ Register Machine</a>
+    <a href="./accessories.html">🔧 Register Accessories</a>
+    <a href="./delivery.html">🚚 For Delivery to Client</a>
+  </nav>
+  <button class="fab-add" id="quickAddButton" type="button" aria-expanded="false" aria-controls="quickAddMenu" aria-label="Add inventory or delivery">+</button>
+  <span class="quick-add-label">Add new</span>
+</div>
+<script src="./js/add-menu.js" type="module"></script>
+</body>
 </html>

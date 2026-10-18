@@ -35,3 +35,21 @@ table{border-collapse:collapse}td,th{border-color:#e9eee8!important}th{backgroun
 @media(max-width:650px){main.wide{width:calc(100% - 24px);margin:18px auto 80px}main.container{margin:15px auto 80px}.fab-add{right:18px;bottom:18px;width:58px;height:58px}.fab-tip{display:none}.stats{gap:10px}.card,.panel{padding:18px!important}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 @media print{body{background:white!important}body:before,body:after,.fab-add,.fab-tip{display:none!important}.panel,.card{box-shadow:none!important}}
+
+/* Expandable inventory quick-add */
+.quick-add{position:fixed;right:29px;bottom:28px;z-index:1200}
+.quick-add .fab-add{position:relative;right:auto;bottom:auto;cursor:pointer;font-family:inherit}
+.quick-add .fab-add[aria-expanded="true"]{transform:rotate(45deg)}
+.quick-add-menu{position:absolute;right:0;bottom:79px;min-width:260px;padding:10px;background:white;border:1px solid #dce5dc;border-radius:15px;box-shadow:0 16px 45px #193c2b35;display:grid;gap:5px}
+.quick-add-menu[hidden]{display:none}
+.quick-add-menu a{display:flex;align-items:center;gap:10px;text-decoration:none;color:#174331;font-weight:650;padding:13px 14px;border-radius:9px}
+.quick-add-menu a:hover,.quick-add-menu a:focus-visible{background:#eef5ef}
+.quick-add-label{position:absolute;right:75px;bottom:18px;background:white;color:#24543b;white-space:nowrap;padding:9px 12px;border-radius:9px;box-shadow:var(--shadow);font-weight:650;font-size:13px}
+.entry-panel{max-width:680px;margin:28px auto;padding:28px;background:#fff;border-radius:18px;box-shadow:var(--shadow)}
+.entry-panel label{display:block;margin:16px 0 7px;font-weight:650}
+.entry-panel input,.entry-panel select,.entry-panel textarea{width:100%;padding:12px;font:inherit}
+.entry-panel textarea{min-height:95px}
+.entry-panel .action-btn{margin-top:18px;padding:13px 20px;border:0;cursor:pointer}
+.entry-panel .feedback{margin-top:18px;white-space:pre-wrap}
+@media(max-width:650px){.quick-add{right:18px;bottom:18px}.quick-add-label{display:none}}
+@media print{.quick-add{display:none!important}}
