@@ -1,0 +1,11 @@
+{
+  "name": "equilibrium-issuance-integration",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.0",
+    "docxtemplater": "^3.66.0",
+    "pizzip": "^3.2.0"
+  }
+}

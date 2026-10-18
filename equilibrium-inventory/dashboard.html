@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Inventory Dashboard | Equilibrium Intertrade</title>
+<link href="css/style.css" rel="stylesheet"/>
+<style>
+    body {
+      background: #f5f5f2;
+      color: #222;
+      font-family: Arial, sans-serif;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
+      border-bottom: 3px solid #24543b;
+      padding-bottom: 18px;
+    }
+
+    .dashboard-header h1 {
+      color: #24543b;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: #79533c;
+    }
+
+    .navigation {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .nav-btn {
+      display: inline-block;
+      padding: 13px 18px;
+      background: #24543b;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: #173d2a;
+    }
+
+    .nav-btn.brown {
+      background: #79533c;
+    }
+
+    .nav-btn.brown:hover {
+      background: #593b2a;
+    }
+
+    .stats .card {
+      border-top: 4px solid #24543b;
+    }
+
+    .stats .card strong {
+      color: #24543b;
+    }
+
+    .section-title {
+      color: #24543b;
+    }
+
+    .hint {
+      color: #79533c;
+    }
+
+    .quick-actions {
+      margin-top: 24px;
+    }
+
+    .quick-actions h2 {
+      color: #24543b;
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+      );
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .action-card {
+      padding: 22px;
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-left: 5px solid #24543b;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #222;
+      transition: 0.2s;
+    }
+
+    .action-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px #00000015;
+    }
+
+    .action-card h3 {
+      color: #24543b;
+      margin: 0 0 10px;
+    }
+
+    .action-card p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .action-card.brown {
+      border-left-color: #79533c;
+    }
+
+    .action-card.brown h3 {
+      color: #79533c;
+    }
+
+    .secondary {
+      background: #79533c;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .dashboard-header {
+        align-items: flex-start;
+      }
+
+      .navigation {
+        flex-direction: column;
+      }
+
+      .nav-btn {
+        text-align: center;
+      }
+    }
+  </style>
+<link href="./css/enhancements.css" rel="stylesheet"/></head>
+<body>
+<main class="wide">
+<!-- DASHBOARD HEADER -->
+<header class="dashboard-header">
+<div>
+<h1>Machine Inventory</h1>
+<p class="subtitle">
+        Equilibrium Intertrade Corp.
+      </p>
+<p class="subtitle" id="welcome">
+        Checking staff access...
+      </p>
+</div>
+<button class="secondary" id="logout">
+      Log out
+    </button>
+</header>
+<!-- NAVIGATION -->
+<nav class="navigation"><a class="nav-btn" href="./machines.html">Machine Inventory</a><a class="nav-btn brown" href="./history.html">Loaner History</a></nav>
+<!-- MACHINE STATUS COUNTERS -->
+<section class="stats">
+<article class="card">
+<small>Total Machines</small>
+<strong id="total">—</strong>
+</article>
+<article class="card">
+<small>Available</small>
+<strong id="available">—</strong>
+</article>
+<article class="card">
+<small>Borrowed</small>
+<strong id="borrowed">—</strong>
+</article>
+<article class="card">
+<small>Maintenance</small>
+<strong id="maintenance">—</strong>
+</article>
+</section>
+<!-- REGISTERED MACHINES -->
+<section class="card">
+<h2 class="section-title">
+      Registered Machines
+    </h2>
+<p class="hint">
+      View your registered machines and monitor
+      their current availability.
+    </p>
+<div id="records">
+      Loading...
+    </div>
+<br/>
+<a class="nav-btn" href="./machines.html">
+      View All Machines →
+    </a>
+</section>
+<!-- QUICK ACTIONS -->
+<section class="quick-actions">
+<h2>Quick Actions</h2>
+<div class="action-grid"><a class="action-card" href="./machines.html"><h3>Machine Inventory</h3><p>Browse machines, check availability and print their QR labels.</p></a><a class="action-card brown" href="./history.html"><h3>Loaner History</h3><p>View current loans, returns and transaction details.</p></a></div>
+</section>
+<!-- SYSTEM MESSAGE -->
+<p id="message" role="status"></p>
+</main>
+<script src="js/dashboard.js" type="module"></script>
+<a aria-label="Register new machine" class="fab-add" href="./register.html" title="Register new machine">+</a><span aria-hidden="true" class="fab-tip">Add machine</span></body>
+</html>

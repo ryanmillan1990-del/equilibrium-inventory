@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Loan History | Equilibrium Intertrade</title>
+<link href="./css/style.css" rel="stylesheet"/>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+      background: #f5f5f2;
+      color: #222;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    h1, h2 { color: #24543b; }
+
+    .subtitle { color: #79533c; }
+
+    .panel {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px #00000012;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .btn, button {
+      background: #24543b;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      padding: 11px 15px;
+      text-decoration: none;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .brown { background: #79533c; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .stats strong {
+      display: block;
+      font-size: 30px;
+      color: #24543b;
+      margin-top: 8px;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    input, select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font: inherit;
+      width: 100%;
+    }
+
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 850px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      font-size: 13px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #24543b;
+      color: white;
+    }
+
+    .badge {
+      padding: 5px 9px;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 11px;
+      display: inline-block;
+    }
+
+    .ACTIVE {
+      background: #fff0d5;
+      color: #885400;
+    }
+
+    .RETURNED {
+      background: #e0f3e6;
+      color: #176b38;
+    }
+
+    .OVERDUE {
+      background: #fee4e2;
+      color: #b42318;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .detail-item {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .detail-item small {
+      display: block;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    #message { overflow-wrap: anywhere; }
+    .error { color: #b42318; }
+
+    @media (max-width: 650px) {
+      .stats, .filters, .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .container { padding: 12px; }
+    }
+
+    @media print {
+      .actions, .filters, .no-print,
+      #historyPanel {
+        display: none !important;
+      }
+
+      body { background: white; }
+      .panel { box-shadow: none; }
+      #detailPanel[hidden] { display: none; }
+    }
+  </style>
+<link href="./css/enhancements.css" rel="stylesheet"/></head>
+<body>
+<main class="container">
+<header>
+<h1>Loaner Transaction History</h1>
+<p class="subtitle">Equilibrium Intertrade Corp.</p>
+<p id="welcome">Checking staff access...</p>
+</header>
+<nav class="actions">
+<a class="btn utility-back" href="./dashboard.html">← Back</a>
+<a class="btn brown" href="./machines.html">
+      Machine Inventory
+    </a>
+<button id="refreshBtn" type="button">
+      Refresh History
+    </button>
+</nav>
+<section class="stats">
+<div class="panel">
+      Total Records
+      <strong id="totalLoans">—</strong>
+</div>
+<div class="panel">
+      Active Loans
+      <strong id="activeLoans">—</strong>
+</div>
+<div class="panel">
+      Returned
+      <strong id="returnedLoans">—</strong>
+</div>
+</section>
+<p id="message" role="status"></p>
+<section class="panel" id="historyPanel">
+<h2>Borrow / Return Records</h2>
+<div class="filters">
+<input id="searchInput" placeholder="Search machine, serial, borrower, company..."/>
+<select id="statusFilter">
+<option value="ALL">All Transactions</option>
+<option value="ACTIVE">Active</option>
+<option value="OVERDUE">Overdue</option>
+<option value="RETURNED">Returned</option>
+</select>
+</div>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Machine</th>
+<th>Borrower</th>
+<th>Borrowed</th>
+<th>Due Date</th>
+<th>Returned</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="historyTable">
+<tr>
+<td colspan="7">Loading history...</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="panel" hidden="" id="detailPanel">
+<h2>Loan Transaction Details</h2>
+<div class="detail-grid" id="detailContent"></div>
+<div class="actions no-print">
+<button id="printBtn" type="button">
+        Print Record
+      </button>
+      <button id="issuanceBtn" type="button" hidden>Download &amp; Print Product Issuance</button>
+<button class="brown" id="closeBtn" type="button">
+        Close Details
+      </button>
+</div>
+</section>
+</main>
+<script src="./js/history.js" type="module"></script>
+<a aria-label="Register new machine" class="fab-add" href="./register.html" title="Register new machine">+</a><span aria-hidden="true" class="fab-tip">Add machine</span></body>
+</html>

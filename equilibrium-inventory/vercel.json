@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/product-issuance.js": {
+      "includeFiles": "api/_templates/**"
+    }
+  }
+}

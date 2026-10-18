@@ -1,0 +1,39 @@
+# Local credentials - NEVER commit service-role keys or tokens
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*service-role*
+*service_role*
+secrets/
+private/
+
+# Dependencies, build and local deployment
+node_modules/
+.vercel/
+dist/
+build/
+coverage/
+__pycache__/
+*.pyc
+
+# Editor, OS and temporary files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+
+# Loan exports / personal data / filled documents
+exports/
+downloads/
+filled-forms/
+Product_Issuance_*.docx
+Product_Issuance_*.pdf
+issuance_example.json
+
+# Original signed source document; cleaned template is explicitly included
+PRODUCT-ISSUANCE-FORM-406.docx
